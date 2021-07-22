@@ -1,0 +1,65 @@
+@font-face {
+    font-family: "Roboto";
+    src: url(../fonts/Roboto-Regular.ttf);
+}
+
+.card-header {
+    padding: 0.75rem 1.25rem;
+    margin-bottom: 0;
+    background-color: #BF0426;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.125);
+  }
+
+.btn-success {
+    color: #fff;
+    background-color: #BF0426;
+    border-color:#BF0426 ;
+  }
+
+  .btn-success:hover {
+    color: #fff;
+    background-color: #F23D6D;
+    border-color:#F23D6D ;
+  }
+
+.form-control:focus {
+    background-color: #fff;
+    outline: 0;
+    box-shadow: 0 0 0 0.2rem #BF0426;
+  }
+  
+  
+  .form-control:hover {
+    background-color: #fff;
+    outline: 0;
+    box-shadow: 0 0 0 0.2rem #BF0426;
+  }
+
+.mb-0,
+  .my-0 {
+    margin-bottom: 0 !important;
+    color: white;
+  }
+
+.text-center {
+    text-align: center !important;
+  }
+
+.mb-5,
+  .my-5 {
+    margin-bottom: 3rem !important;
+  }
+
+  h1,h2, h3, span {
+    font-family: "Roboto", sans-serif;
+  }
+
+  a {
+    color: white;
+    text-decoration: none;
+  }
+
+  a:hover {
+    color: white;
+    text-decoration: none;
+  }
