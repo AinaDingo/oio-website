@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="fr" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+    <title>OiO</title>
+    <meta content="" name="description">
+    <meta content="" name="keywords">
+
+    <!-- Favicons -->
+    <link th:href="@{/assets/oio.png}" rel="icon">
+    <link th:href="@{/assets/oio.png}" rel="apple-touch-icon">
+
+    <!-- CSS Files -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.5.0/font/bootstrap-icons.min.css"
+        integrity="sha512-xnP2tOaCJnzp2d2IqKFcxuOiVCbuessxM6wuiolT9eeEJCyy0Vhcwa4zQvdrZNVqlqaxXhHqsSV1Ww7T2jSCUQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <!--<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css"
+        integrity="sha512-1cK78a1o+ht2JcaW6g8OXYwqpev9+6GqOkz9xmBN9iUUhIndKtxwILGWYOSibOKjLsEdjyjZvYDq/cZwNeak0w=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />-->
+
+    <!-- Main CSS File -->
+    <link th:href="@{/css/oio.css}" rel="stylesheet">
+    <link th:href="@{/css/card.css}" rel="stylesheet">
+
+    <!-- <link rel="stylesheet" th:href="@{/css2/owl.carousel.min.css}">
+    <link rel="stylesheet" th:href="@{/css2/owl.theme.default.min.css}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/4.5.6/css/ionicons.min.css">
+    <link rel="stylesheet" th:href="@{/css2/style.css}"> -->
+
+</head>
+
+<body>
+
+    <!-- ======= Header ======= -->
+    <header id="header" class="fixed-top">
+        <div class="container d-flex align-items-center">
+
+            <h1 class="logo me-auto"><a th:href="@{/}"><img th:src="@{/assets/oio-icon.png}" alt=""></a></h1>
+
+            <nav id="navbar" class="navbar order-last order-lg-0">
+                <ul>
+                    <li><a class="active" th:href="@{/}">Accueil</a></li>
+                    <li><a href="#apropos">A propos</a></li>
+                    <li><a href="#matieres">Matières</a></li>
+                    <li><a href="#enseignant">Enseignants</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+                <i class="bi bi-list mobile-nav-toggle"></i>
+            </nav><!-- .navbar -->
+
+            <a th:href="@{login}" class="get-started-btn">Se Connecter</a>
+
+        </div>
+    </header><!-- End Header -->
+
+    <!-- ======= Hero Section ======= -->
+    <section id="hero" class="d-flex justify-content-center align-items-center">
+        <div class="container position-relative" data-aos="zoom-in" data-aos-delay="100">
+            <h1>La première plateforme internationale</br>de cours à distance</h1>
+            <h2>Nos valeurs : enseignants compétents, solidarité, bienveillance</h2>
+            <a th:href="@{login}" class="btn-get-started">Commencer</a>
+        </div>
+    </section><!-- End Hero -->
+
+    <main id="main">
+        <!-- ======= Why Us Section ======= -->
+        <section id="why-us" class="why-us">
+            <div class="container" data-aos="fade-up">
+                <div class="row">
+                    <div class="col-lg-6 d-flex align-items-stretch">
+                        <div class="content">
+                            <h3>OIO , nos débuts.</h3>
+                            <p>
+                                Pendant la période de confinement, une de nos co-fondatrices
+                                avait besoin d'un Professeur-Mentor de Chimie pour sa fille,
+                                étudiante à Montréal. Compte tenu de la situation de crise,
+                                elle a alors décidé de faire appel au fils d'une amie,
+                                étudiant Parisien de niveau supérieur.
+                                <br><br>
+                                L'entreprise de l'Economie Sociale et Solidaire (ESS) OIO est
+                                ainsi créée par 3 Mamans Malagasy engagées Hanta, Joëlle et Liana
+                                avec comme mission principale une entraide *en ligne
+                                entre professeur - mentor et élève, à travers le monde.
+                            </p>
+                            <div class="text-center">
+                                <a href="" class="more-btn">En savoir un peu plus ?​ <i
+                                        class="fa fa-arrow-right"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 order-1 order-lg-2" data-aos="fade-left" data-aos-delay="100">
+                        <img th:src="@{/assets/img-apropos.jpg}" class="img-fluid" alt="">
+                    </div>
+                </div>
+            </div>
+        </section><!-- End Why Us Section -->
+
+        <!-- ======= Why Us Section ======= -->
+        <section id="why-us" class="why-us">
+            <div class="container" data-aos="fade-up">
+                <div class="row">
+                    <div class="col-lg-6 d-flex align-items-stretch">
+                        <div class="content">
+                            <h3>Des professeurs - mentors dans votre entourage ?</h3>
+                            <p>
+                                Nous croyons fortement à la puissance du réseau, ainsi nous privilégeons
+                                l'intégration des professeurs - mentors qui sont parrainés par nos connaissances.
+                                <br><br>
+                                Alors, nous comptons sur vous pour nous envoyer des candidats !
+                            </p>
+                            <div class="text-center">
+                                <a th:href="@{/parrainage}" class="more-btn">
+                                    Je parraine un candidat <i class="fa fa-arrow-right"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 order-1 order-lg-2" data-aos="fade-left" data-aos-delay="100">
+                        <img th:src="@{/assets/img-apropos3.jpg}" class="img-fluid" alt="">
+                    </div>
+                </div>
+            </div>
+        </section><!-- End Why Us Section -->
+
+
+        <p id="matieres"></p>
+        <section id="why-us" class="why-us">
+            <div class="container" data-aos="fade-up">
+
+                <div class="row" data-aos="zoom-in" data-aos-delay="100">
+                  <div class="col-lg-3 col-md-4">
+                    <div class="icon-box">
+                      <i class="ri-store-line" style="color: #ffbb2c;"></i>
+                      <h3><a href="">Lorem Ipsum</a></h3>
+                    </div>
+                  </div>
+                </div>
+        
+              </div>
+        </section>
+
+
+
+
+        <!-- ======= Trainers Section ======= -->
+        <p id="enseignant"></p>
+        <section id="trainers" class="trainers">
+            <div class="container" data-aos="fade-up">
+                <div class="row" data-aos="zoom-in" data-aos-delay="100">
+                    <div class="col-lg-4 col-md-6 d-flex align-items-stretch" th:each="listE : ${listEns}">
+                        <div class="member">
+                            <img th:src="*{'data:images/jpeg;base64,'+listE.pdp}" class="img-fluid" alt="profil">
+                            <div class="member-content">
+                                <h4 th:text="${listE.nom}"></h4>
+                                <span th:text="${listE.prenom}"></span>
+                                <p th:text="${listE.niveau}"></p>
+                                <h3 th:text="${listE.matiere}"></h3>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+        </section>
+        <!-- End Trainers Section -->
+
+
+        <!-- <section class="ftco-section">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12 text-center">
+                        <h2 class="heading-section mb-5">Carousel #03</h2>
+                    </div>
+                    <div class="col-md-12">
+                        <div class="featured-carousel owl-carousel">
+                            <div class="item" th:each="listE : ${listEns}">
+                                <div class="work">
+                                    <div class="member">
+                                        <img th:src="*{'data:images/jpeg;base64,'+listE.pdp}" class="img-fluid" alt="profil">
+                                        <div class="member-content">
+                                            <h4 th:text="${listE.nom}"></h4>
+                                            <span th:text="${listE.prenom}"></span>
+                                            <p th:text="${listE.niveau}"></p>
+                                            <h3 th:text="${listE.matiere}"></h3>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section> -->
+
+
+
+
+        <!-- ======= Why Us Section ======= -->
+        <p id="apropos"></p>
+        <section id="why-us" class="why-us">
+            <div class="container" data-aos="fade-up">
+                <div class="row">
+                    <div class="col-lg-6 d-flex align-items-stretch">
+                        <div class="content">
+                            <h3>Nos valeurs Partage, Confiance, Solidarité</h3>
+                            <p>
+                                Etant d'origine de Madagascar, notre cible initiale était constituée par
+                                les enseignants actifs ou retraités locaux, ainsi que les étudiants à partir
+                                d'un certain niveau d'étude de la diaspora, sélectionnés avec bienveillance
+                                par notre équipe.
+                                <br><br>
+                                Notre objectif consiste à mettre en valeur les compétences des compatriotes
+                                tout en leur offrant la possibilité d'obtenir un complément de revenus.
+                                <br><br>
+                                Les élèves ou parents qui font appel à nos services participent alors à
+                                l'amélioration des conditions de vie des professeurs - mentors, à travers OIO,
+                                la plateforme de mise en relation solidaire.
+                            </p>
+                            <div class="text-center">
+                                <a href="" class="more-btn">
+                                    Solidarité en action <i class="fa fa-arrow-right"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 order-1 order-lg-2" data-aos="fade-left" data-aos-delay="100">
+                        <img th:src="@{/assets/img-apropos2.jpg}" class="img-fluid" alt="">
+                    </div>
+                </div>
+            </div>
+        </section><!-- End Why Us Section -->
+
+
+
+        <!-- ======= Counts Section ======= -->
+        <section id="counts" class="counts section-bg">
+            <div class="container">
+
+                <div class="row counters">
+
+                    <div class="col-lg-3 col-6 text-center">
+                        <h1 th:text="${compteParent}" style="color: #BF0426; font-weight: bold;font-size: 53px;"></h1>
+                        <p>Nombre de parents inscrits</p>
+                    </div>
+
+                    <div class="col-lg-3 col-6 text-center">
+                        <h1 th:text="${compteParent}" style="color: #BF0426; font-weight: bold;font-size: 53px;"></h1>
+                        <p>Nombre d'étudiants</p>
+                    </div>
+
+                    <div class="col-lg-3 col-6 text-center">
+                        <h1 th:text="${compteMatiere}" style="color: #BF0426; font-weight: bold;font-size: 53px;"></h1>
+                        <p>Nombre de matières enseignées</p>
+                    </div>
+
+                    <div class="col-lg-3 col-6 text-center">
+                        <h1 th:text="${compteFormateur}" style="color: #BF0426; font-weight: bold;font-size: 53px;">
+                        </h1>
+                        <p>Nombre de professeur</p>
+                    </div>
+                </div>
+
+            </div>
+        </section><!-- End Counts Section -->
+        <br><br><br>
+    </main><!-- End #main -->
+
+    <!-- ======= Footer ======= -->
+    <footer id="footer">
+
+        <div class="footer-top">
+            <div class="container">
+                <div class="row">
+
+                    <div class="col-lg-4 col-md-6 footer-contact">
+                        <h3 id="contact">OiO</h3>
+                        <p>
+                            Inclusiv Academy <br>
+                            Antananarivo, Ankerana<br>
+                            Madagascar <br><br>
+                            <strong>Téléphone:</strong> +26134 64 856 23<br>
+                            <strong>Email:</strong> contact@inclusiv.mg<br>
+                        </p>
+                    </div>
+
+                    <div class="col-lg-3 col-md-6 footer-links">
+                        <h4>Liens utiles</h4>
+                        <ul>
+                            <li><i class="fa fa-angle-right"></i> <a href="#">Accueil</a></li>
+                            <li><i class="fa fa-angle-right"></i> <a href="#">A propos</a></li>
+                            <li><i class="fa fa-angle-right"></i> <a href="#">Contact</a></li>
+                        </ul>
+                    </div>
+
+                    <div class="col-lg-5 col-md-6 footer-newsletter">
+                        <h4>Abonnez-vous à notre Newsletters</h4>
+                        <p>En renseignant votre adresse E-mail</p>
+                        <form action="" method="post">
+                            <input type="email" name="email"><input type="submit" value="S'abonner">
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="container d-md-flex py-4">
+
+            <div class="me-md-auto text-center text-md-start">
+                <div class="copyright">
+                    &copy; Copyright <strong><span>OiO</span></strong>. Tous les droits sont réservés
+                </div>
+            </div>
+            <div class="social-links text-center text-md-right pt-3 pt-md-0">
+                <a href="#" class="twitter"><i class="fa fa-twitter"></i></a>
+                <a href="#" class="facebook"><i class="fa fa-facebook"></i></a>
+                <a href="#" class="instagram"><i class="fa fa-instagram"></i></a>
+                <a href="#" class="google-plus"><i class="fa fa-skype"></i></a>
+                <a href="#" class="linkedin"><i class="fa fa-linkedin"></i></a>
+            </div>
+        </div>
+    </footer><!-- End Footer -->
+
+    <div id="preloader"></div>
+    <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i
+            class="bi bi-arrow-up-short"></i></a>
+
+    <!-- JS Files -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4"
+        crossorigin="anonymous"></script>
+    <script th:src="@{/js/purecounter.js}"></script>
+    <!--<script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"
+        integrity="sha512-A7AYk1fGKX6S2SsHywmPkrnzTZHrgiVT7GcQkLGDe2ev0aWb8zejytzS8wjo7PGEXKqJOrjQ4oORtnimIRZBtw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>-->
+
+    <!-- Main JS File -->
+    <script th:src="@{/js/oio.js}"></script>
+
+    <!-- <script th:src="@{/js2/jquery.min.js}"></script>
+    <script th:src="@{/js2/owl.carousel.min.js}"></script>
+    <script th:src="@{/js2/main.js}"></script> -->
+</body>
+
+</html>

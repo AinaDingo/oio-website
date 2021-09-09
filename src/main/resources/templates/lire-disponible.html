@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="utf-8" />
+    <link th:href="@{/assets/oio.png}" rel="apple-touch-icon">
+    <link th:href="@{/assets/oio.png}" rel="icon">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <title>
+        OiO Parent Réservations
+    </title>
+    <meta content='width=device-width, initial-scale=1.0, shrink-to-fit=no' name='viewport' />
+    <!--     Fonts and icons     -->
+    <link rel="stylesheet" type="text/css"
+        href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Roboto+Slab:400,700|Material+Icons" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css">
+    <!-- CSS Files -->
+    <link th:href="@{/css/material-dashboard.css?v=2.1.2}" rel="stylesheet" />
+    <link th:href="@{/css/cardProf.css}" rel="stylesheet" />
+</head>
+
+<body class="" th:objet="${parent}">
+    <div class="wrapper ">
+        <div class="sidebar" data-color="purple" data-background-color="white" data-image="../assets/img/sidebar-1.jpg">
+            <div class="logo">
+                <img th:src="@{/assets/oio-icon.png}" alt="OIO" width=100px height="40px" style="margin-left: 20px;">
+            </div>
+            <div class="sidebar-wrapper">
+                <ul class="nav">
+                    <li class="nav-item  active">
+                        <a class="nav-link" th:href="@{'/parent/'+${parent.id}+'/liste'}">
+                            <i class="material-icons">keyboard_backspace</i>
+                            <p>Retour</p>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="main-panel">
+            <div class="content">
+                <div class="container-fluid" th:objet="${prof}">
+                    <div class="row" >
+                        <h1 style="margin-left: 50px;" th:text="${prof.nom}+' '+${prof.prenom}"></h1>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="card">
+                                <div class="card-header card-header-primary">
+                                    <h4 class="card-title ">Calendrier de disponibilités</h4>
+                                    <p class="card-category"> Veuillez cocher les dates et horaires que vous voulez
+                                        réserver
+                                    </p>
+                                </div>
+                                <div class="card-body">
+                                    <div class="card-body">
+                                        <div class="table-responsive">
+                                            <table class="table table-hover">
+                                                <thead>
+                                                    <tr>
+                                                        <th>Date</th>
+                                                        <th>Heure de début</th>
+                                                        <th>Heure de fin</th>
+                                                        <th>Statut</th>
+                                                        <th>Action</th>
+                                                    </tr>
+
+                                                </thead>
+                                                <tbody>
+                                                    <tr th:each="cal : ${calendrier}">
+                                                        <td th:text="${cal.datecours}"></td>
+                                                        <td th:text="${cal.heuredebut}"></td>
+                                                        <td th:text="${cal.heurefin}"></td>
+                                                        <td>
+                                                            <span th:if="${cal.statutreservation == 'Disponible'}" style="display: flex;align-items: center;text-align: center;">
+                                                                <i class="material-icons" style="color: rgb(77, 248, 77);margin-right: 10px;">event_available</i>
+                                                                <span> Disponible </span>
+                                                            </span>
+                                                            <span th:if="${cal.statutreservation == 'Réservé'}" style="display: flex;align-items: center;text-align: center;">
+                                                                <i class="material-icons" style="color: red; margin-right: 10px;">report_off</i>
+                                                                <span> Réservé </span>
+                                                            </span>
+                                                        </td>
+                                                        <td>
+                                                            <span th:if="${cal.statutreservation == 'Réservé'}" style="display: flex;align-items: center;text-align: center;">
+                                                            </span>
+                                                            <span th:if="${cal.statutreservation == 'Disponible'}" style="display: flex;align-items: center;text-align: center;">
+                                                                <a th:href="'/parent/'+${parent.id}+'/liste/disponible/'+${prof.id}+'/'+${cal.id}" ><i class="material-icons" style="margin-right: 10px;">check_circle</i><span> Voulez vous réserver?</span></a>
+                                                                
+                                                            </span>
+                                                        </td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <footer class="footer">
+        <div class="container-fluid">
+            <nav class="float-left">
+                <ul>
+                    <a href="https://creative-tim.com/presentation">
+                        Contact
+                    </a>
+                    </li>
+                </ul>
+            </nav>
+            <div class="copyright float-right">
+                &copy;
+                <script>
+                    document.write(new Date().getFullYear())
+                </script>, OiO à votre service.
+            </div>
+        </div>
+    </footer>
+
+                <!--   Core JS Files   -->
+                <script th:src="@{/js/core/jquery.min.js}"></script>
+                <script th:src="@{/js/core/popper.min.js}"></script>
+                <script th:src="@{/js/core/bootstrap-material-design.min.js}"></script>
+                <script th:src="@{/js/plugins/perfect-scrollbar.jquery.min.js}"></script>
+                <!-- Plugin for the momentJs  -->
+                <script th:src="@{/js/plugins/moment.min.js}"></script>
+                <!--  Plugin for Sweet Alert -->
+                <script th:src="@{/js/plugins/sweetalert2.js}"></script>
+                <!-- Forms Validations Plugin -->
+                <script th:src="@{/js/plugins/jquery.validate.min.js}"></script>
+                <!-- Plugin for the Wizard, full documentation here: https://github.com/VinceG/twitter-bootstrap-wizard -->
+                <script th:src="@{/js/plugins/jquery.bootstrap-wizard.js}"></script>
+                <!--	Plugin for Select, full documentation here: http://silviomoreto.github.io/bootstrap-select -->
+                <script th:src="@{/js/plugins/bootstrap-selectpicker.js}"></script>
+                <!--  Plugin for the DateTimePicker, full documentation here: https://eonasdan.github.io/bootstrap-datetimepicker/ -->
+                <script th:src="@{/js/plugins/bootstrap-datetimepicker.min.js}"></script>
+                <!--  DataTables.net Plugin, full documentation here: https://datatables.net/  -->
+                <script th:src="@{/js/plugins/jquery.dataTables.min.js}"></script>
+                <!--	Plugin for Tags, full documentation here: https://github.com/bootstrap-tagsinput/bootstrap-tagsinputs  -->
+                <script th:src="@{/js/plugins/bootstrap-tagsinput.js}"></script>
+                <!-- Plugin for Fileupload, full documentation here: http://www.jasny.net/bootstrap/javascript/#fileinput -->
+                <script th:src="@{/js/plugins/jasny-bootstrap.min.js}"></script>
+                <!--  Full Calendar Plugin, full documentation here: https://github.com/fullcalendar/fullcalendar    -->
+                <script th:src="@{/js/plugins/fullcalendar.min.js}"></script>
+                <!-- Vector Map plugin, full documentation here: http://jvectormap.com/documentation/ -->
+                <script th:src="@{/js/plugins/jquery-jvectormap.js}"></script>
+                <!--  Plugin for the Sliders, full documentation here: http://refreshless.com/nouislider/ -->
+                <script th:src="@{/js/plugins/nouislider.min.js}"></script>
+                <!-- Include a polyfill for ES6 Promises (optional) for IE11, UC Browser and Android browser support SweetAlert -->
+                <script src="https://cdnjs.cloudflare.com/ajax/libs/core-js/2.4.1/core.js"></script>
+                <!-- Library for adding dinamically elements -->
+                <script th:src="@{/js/plugins/arrive.min.js}"></script>
+                <!--  Google Maps Plugin    -->
+                <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_KEY_HERE"></script>
+                <!-- Chartist JS -->
+                <script th:src="@{/js/plugins/chartist.min.js}"></script>
+                <!--  Notifications Plugin    -->
+                <script th:src="@{/js/plugins/bootstrap-notify.js}"></script>
+                <!-- Control Center for Material Dashboard: parallax effects, scripts for the example pages etc -->
+                <script th:src="@{/js/material-dashboard.js?v=2.1.2}" type="text/javascript"></script>
+                <script>
+                    $(document).ready(function () {
+                        $().ready(function () {
+                            $sidebar = $('.sidebar');
+
+                            $sidebar_img_container = $sidebar.find('.sidebar-background');
+
+                            $full_page = $('.full-page');
+
+                            $sidebar_responsive = $('body > .navbar-collapse');
+
+                            window_width = $(window).width();
+
+                            fixed_plugin_open = $('.sidebar .sidebar-wrapper .nav li.active a p').html();
+
+                            if (window_width > 767 && fixed_plugin_open == 'Dashboard') {
+                                if ($('.fixed-plugin .dropdown').hasClass('show-dropdown')) {
+                                    $('.fixed-plugin .dropdown').addClass('open');
+                                }
+
+                            }
+
+                            $('.fixed-plugin a').click(function (event) {
+                                // Alex if we click on switch, stop propagation of the event, so the dropdown will not be hide, otherwise we set the  section active
+                                if ($(this).hasClass('switch-trigger')) {
+                                    if (event.stopPropagation) {
+                                        event.stopPropagation();
+                                    } else if (window.event) {
+                                        window.event.cancelBubble = true;
+                                    }
+                                }
+                            });
+
+                            $('.fixed-plugin .active-color span').click(function () {
+                                $full_page_background = $('.full-page-background');
+
+                                $(this).siblings().removeClass('active');
+                                $(this).addClass('active');
+
+                                var new_color = $(this).data('color');
+
+                                if ($sidebar.length != 0) {
+                                    $sidebar.attr('data-color', new_color);
+                                }
+
+                                if ($full_page.length != 0) {
+                                    $full_page.attr('filter-color', new_color);
+                                }
+
+                                if ($sidebar_responsive.length != 0) {
+                                    $sidebar_responsive.attr('data-color', new_color);
+                                }
+                            });
+
+                            $('.fixed-plugin .background-color .badge').click(function () {
+                                $(this).siblings().removeClass('active');
+                                $(this).addClass('active');
+
+                                var new_color = $(this).data('background-color');
+
+                                if ($sidebar.length != 0) {
+                                    $sidebar.attr('data-background-color', new_color);
+                                }
+                            });
+
+                            $('.fixed-plugin .img-holder').click(function () {
+                                $full_page_background = $('.full-page-background');
+
+                                $(this).parent('li').siblings().removeClass('active');
+                                $(this).parent('li').addClass('active');
+
+
+                                var new_image = $(this).find("img").attr('src');
+
+                                if ($sidebar_img_container.length != 0 && $('.switch-sidebar-image input:checked').length != 0) {
+                                    $sidebar_img_container.fadeOut('fast', function () {
+                                        $sidebar_img_container.css('background-image', 'url("' + new_image + '")');
+                                        $sidebar_img_container.fadeIn('fast');
+                                    });
+                                }
+
+                                if ($full_page_background.length != 0 && $('.switch-sidebar-image input:checked').length != 0) {
+                                    var new_image_full_page = $('.fixed-plugin li.active .img-holder').find('img').data('src');
+
+                                    $full_page_background.fadeOut('fast', function () {
+                                        $full_page_background.css('background-image', 'url("' + new_image_full_page + '")');
+                                        $full_page_background.fadeIn('fast');
+                                    });
+                                }
+
+                                if ($('.switch-sidebar-image input:checked').length == 0) {
+                                    var new_image = $('.fixed-plugin li.active .img-holder').find("img").attr('src');
+                                    var new_image_full_page = $('.fixed-plugin li.active .img-holder').find('img').data('src');
+
+                                    $sidebar_img_container.css('background-image', 'url("' + new_image + '")');
+                                    $full_page_background.css('background-image', 'url("' + new_image_full_page + '")');
+                                }
+
+                                if ($sidebar_responsive.length != 0) {
+                                    $sidebar_responsive.css('background-image', 'url("' + new_image + '")');
+                                }
+                            });
+
+                            $('.switch-sidebar-image input').change(function () {
+                                $full_page_background = $('.full-page-background');
+
+                                $input = $(this);
+
+                                if ($input.is(':checked')) {
+                                    if ($sidebar_img_container.length != 0) {
+                                        $sidebar_img_container.fadeIn('fast');
+                                        $sidebar.attr('data-image', '#');
+                                    }
+
+                                    if ($full_page_background.length != 0) {
+                                        $full_page_background.fadeIn('fast');
+                                        $full_page.attr('data-image', '#');
+                                    }
+
+                                    background_image = true;
+                                } else {
+                                    if ($sidebar_img_container.length != 0) {
+                                        $sidebar.removeAttr('data-image');
+                                        $sidebar_img_container.fadeOut('fast');
+                                    }
+
+                                    if ($full_page_background.length != 0) {
+                                        $full_page.removeAttr('data-image', '#');
+                                        $full_page_background.fadeOut('fast');
+                                    }
+
+                                    background_image = false;
+                                }
+                            });
+
+                            $('.switch-sidebar-mini input').change(function () {
+                                $body = $('body');
+
+                                $input = $(this);
+
+                                if (md.misc.sidebar_mini_active == true) {
+                                    $('body').removeClass('sidebar-mini');
+                                    md.misc.sidebar_mini_active = false;
+
+                                    $('.sidebar .sidebar-wrapper, .main-panel').perfectScrollbar();
+
+                                } else {
+
+                                    $('.sidebar .sidebar-wrapper, .main-panel').perfectScrollbar('destroy');
+
+                                    setTimeout(function () {
+                                        $('body').addClass('sidebar-mini');
+
+                                        md.misc.sidebar_mini_active = true;
+                                    }, 300);
+                                }
+
+                                // we simulate the window Resize so the charts will get updated in realtime.
+                                var simulateWindowResize = setInterval(function () {
+                                    window.dispatchEvent(new Event('resize'));
+                                }, 180);
+
+                                // we stop the simulation of Window Resize after the animations are completed
+                                setTimeout(function () {
+                                    clearInterval(simulateWindowResize);
+                                }, 1000);
+
+                            });
+                        });
+                    });
+                </script>
+</body>
+
+</html>

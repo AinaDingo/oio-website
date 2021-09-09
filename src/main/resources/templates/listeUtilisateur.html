@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Administrateur</title>
+<link
+	href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css"
+	rel="stylesheet"
+	integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x"
+	crossorigin="anonymous">
+</head>
+<body>
+	<h1 align="center">Liste des utilisateurs!</h1>
+	<a th:href="@{/}">OIO</a>
+	<div class="container my-2">
+		<table id="table-1" class="ui pink table">
+			<thead>
+				<tr>
+					<th>ID</th>
+					<th>Nom</th>
+					<th>Prenom</th>
+					<th>Nom d'utilisateur</th>
+					<th>Email</th>
+					<th>Téléphone</th>
+					<th>Pays</th>
+					<th>Ville</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr th:each="utilisateur : ${listeUtilisateur}">
+					<td th:text="${utilisateur.id}"></td>
+					<td th:text="${utilisateur.nom}"></td>
+					<td th:text="${utilisateur.prenom}"></td>
+					<td th:text="${utilisateur.mail}"></td>
+					<td th:text="${utilisateur.telephone}"></td>
+					<td th:text="${utilisateur.pays}"></td>
+					<td th:text="${utilisateur.ville}"></td>
+					<td></td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+</body>
+</html>
